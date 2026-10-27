@@ -24,17 +24,33 @@ Al terminar: git commit -m "Resuelve ejercicio 04".
 """
 
 def aplicar_operacion(valores, operacion):
-    # TODO: implementa lo solicitado y devuelve el resultado.
-    pass
-
+    resultado = []
+    for valor in valores:
+        resultado.append(operacion(valor))
+    return resultado
 
 def transformar(valores):
-    # TODO: crea el diccionario de funciones y aplica las operaciones.
-    pass
+    operaciones = {
+        "doble": lambda x: x * 2,
+        "cuadrado": lambda x: x ** 2,
+        "negativo": lambda x: -x
+    }
+    
+    resultados_transformados = {}
+    for clave, func in operaciones.items():
+        resultados_transformados[clave] = aplicar_operacion(valores, func)
+        
+    return resultados_transformados
 
 
-# Ejemplo de uso: inicialmente imprime None porque falta la implementación.
+# Ejemplos de uso originales:
 valores = [1, 2, 3]
 print(transformar(valores))
+print(aplicar_operacion([2, 4], lambda x: x + 1)) 
+# Resultado esperado para aplicar_operacion: [3, 5]
 
-# TODO: añade otro ejemplo con print y su resultado esperado en un comentario.
+# Nuevo ejemplo añadido:
+valores_2 = [0, -5, 10]
+print(transformar(valores_2))
+# Resultado esperado para transformar(valores_2):
+# {'doble': [0, -10, 20], 'cuadrado': [0, 25, 100], 'negativo': [0, 5, -10]}
