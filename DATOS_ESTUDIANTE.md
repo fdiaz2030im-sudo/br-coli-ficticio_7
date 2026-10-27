@@ -1,6 +1,6 @@
-# Identificación
+# Identificacion
 
-- Nombre y apellido:
-- Usuario de GitHub:
+- Nombre y apellido:francisco diaz
+- Usuario de GitHub:fdiaz2030im-sudo
 
-No incluyas cédula, contraseñas ni datos sensibles.
+No incluyas cedula, contraseñas ni datos sensibles.
