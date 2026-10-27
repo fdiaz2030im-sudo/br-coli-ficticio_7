@@ -22,11 +22,19 @@ Al terminar: git commit -m "Resuelve ejercicio 06".
 """
 
 def revisar_stock(productos):
-    # TODO: implementa lo solicitado y devuelve el resultado.
-    pass
+    # Filtrar productos con stock menor a 5 y extraer sus nombres
+    reponer = list(map(lambda p: p["nombre"], filter(lambda p: p["stock"] < 5, productos)))
+    
+    # Verificar si hay algún producto con stock igual a 0
+    hay_agotados = any(map(lambda p: p["stock"] == 0, productos))
+    
+    return {
+        "reponer": reponer,
+        "hay_agotados": hay_agotados
+    }
 
 
-# Ejemplo de uso: inicialmente imprime None porque falta la implementación.
+# Ejemplo de uso original:
 productos = [
     {"nombre": "cafe", "stock": 8},
     {"nombre": "te", "stock": 0},
@@ -34,4 +42,12 @@ productos = [
 ]
 print(revisar_stock(productos))
 
-# TODO: añade otro ejemplo con print y su resultado esperado en un comentario.
+# Nuevo ejemplo añadido:
+productos_2 = [
+    {"nombre": "agua", "stock": 5}, 
+    {"nombre": "jugo", "stock": 10}, 
+    {"nombre": "galletas", "stock": 4}
+]
+print(revisar_stock(productos_2))
+# Resultado esperado para productos_2:
+# {'reponer': ['galletas'], 'hay_agotados': False}
