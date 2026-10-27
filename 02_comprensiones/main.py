@@ -23,11 +23,23 @@ Al terminar: git commit -m "Resuelve ejercicio 02".
 """
 
 def preparar_catalogo(productos):
-    # TODO: implementa lo solicitado y devuelve el resultado.
-    pass
+    # Comprensión de lista para los nombres con precio <= 20
+    disponibles = [p["nombre"] for p in productos if p["precio"] <= 20]
+    
+    # Comprensión de diccionario para el mapeo nombre -> precio
+    precios = {p["nombre"]: p["precio"] for p in productos}
+    
+    # Comprensión de set para obtener las categorías únicas
+    categorias = {p["categoria"] for p in productos}
+    
+    return {
+        "disponibles": disponibles,
+        "precios": precios,
+        "categorias": categorias
+    }
 
 
-# Ejemplo de uso: inicialmente imprime None porque falta la implementación.
+# Ejemplo de uso original:
 productos = [
     {"nombre": "cafe", "precio": 10, "categoria": "bebida"},
     {"nombre": "torta", "precio": 25, "categoria": "postre"},
@@ -35,4 +47,12 @@ productos = [
 ]
 print(preparar_catalogo(productos))
 
-# TODO: añade otro ejemplo con print y su resultado esperado en un comentario.
+# Nuevo ejemplo añadido:
+productos_2 = [
+    {"nombre": "agua", "precio": 2, "categoria": "bebida"},
+    {"nombre": "hamburguesa", "precio": 22, "categoria": "comida"},
+    {"nombre": "papas", "precio": 15, "categoria": "comida"},
+]
+print(preparar_catalogo(productos_2))
+# Resultado esperado para productos_2:
+# {'disponibles': ['agua', 'papas'], 'precios': {'agua': 2, 'hamburguesa': 22, 'papas': 15}, 'categorias': {'bebida', 'comida'}}
